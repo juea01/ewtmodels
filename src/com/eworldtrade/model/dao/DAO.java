@@ -6,11 +6,13 @@ import javax.ejb.Local;
 import javax.ejb.Remote;
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
+import javax.persistence.NoResultException;
 import javax.persistence.PersistenceContext;
 
 import com.eworldtrade.model.dto.DealDTO;
 import com.eworldtrade.model.dto.UserDTO;
 import com.eworldtrade.model.entity.Deal;
+import com.eworldtrade.model.entity.GemJewellery;
 import com.eworldtrade.model.entity.User;
 
 
@@ -34,9 +36,19 @@ import com.eworldtrade.model.entity.User;
 	
 	public Deal createDeal(Deal deal);
 	
+	public GemJewellery createGemJewellery(GemJewellery gemJewellery);
+	
 	public List<Deal> getDeals(int startIndex, int totalSize); 
+	
+	public List<GemJewellery> getGemsJewelleries(int startIndex, int totalSize); 
 	
 	public long countDeals();
 	
+	public long countGemsJewelleries();
+	
 	public Deal getDealById(int id); 
+	
+	public GemJewellery getGemJewelleryById(int id); 
+	
+	public User getUserByUserNamePassword(String userName, String password);
 }

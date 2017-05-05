@@ -10,21 +10,23 @@ import java.util.List;
 
 
 /**
- * The persistent class for the Deal database table.
+ * The persistent class for the deal database table.
  * 
  */
 @Entity
 @NamedQueries({@NamedQuery(name="Deal.findAll", query="SELECT d FROM Deal d"),
-	@NamedQuery(name="Deal.findById", query="SELECT d FROM Deal d where d.dealId = :Id"),
-	@NamedQuery(name="Deal.countAll", query="SELECT COUNT(d.dealId) FROM Deal d")})
+@NamedQuery(name="Deal.findById", query="SELECT d FROM Deal d where d.dealId = :Id"),
+@NamedQuery(name="Deal.countAll", query="SELECT COUNT(d.dealId) FROM Deal d")})
 public class Deal implements Serializable {
 	private static final long serialVersionUID = 1L;
 
 	@Id
-	@SequenceGenerator(name="DEAL_DEALID_GENERATOR", sequenceName="DEAL_SEQUENCE_ID")
+	@SequenceGenerator(name="DEAL_DEALID_GENERATOR" )
 	@GeneratedValue(strategy=GenerationType.SEQUENCE, generator="DEAL_DEALID_GENERATOR")
 	@Column(name="DEAL_ID")
 	private int dealId;
+
+	private String currency;
 
 	@Column(name="DEAL_TYPE")
 	private String dealType;
@@ -44,7 +46,7 @@ public class Deal implements Serializable {
 	@OneToMany(fetch=FetchType.EAGER, cascade=CascadeType.PERSIST)
 	@JoinColumn(name="DEAL_ID")
 	private List<Deal_Image> dealImages;
-
+	
 	public Deal() {
 	}
 
@@ -54,6 +56,14 @@ public class Deal implements Serializable {
 
 	public void setDealId(int dealId) {
 		this.dealId = dealId;
+	}
+
+	public String getCurrency() {
+		return this.currency;
+	}
+
+	public void setCurrency(String currency) {
+		this.currency = currency;
 	}
 
 	public String getDealType() {
@@ -95,14 +105,13 @@ public class Deal implements Serializable {
 	public void setTitle(String title) {
 		this.title = title;
 	}
-
+	
 	public List<Deal_Image> getDealImages() {
 		return this.dealImages;
-	}
+		}
 
-	public void setDealImages(List<Deal_Image> dealImages) {
+		public void setDealImages(List<Deal_Image> dealImages) {
 		this.dealImages = dealImages;
-	}
-
+		}
 
 }

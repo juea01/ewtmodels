@@ -5,16 +5,23 @@ import java.util.Date;
 public class UserDTO {
 	
 	
-	private String firstName;
+	private String userName;
 	private String email;
 	private Date dateOfBirth;
 	private String gender;
+	private String password;
 	
-	public String getFirstName() {
-		return firstName;
+	public String getPassword() {
+		return password;
 	}
-	public void setFirstName(String firstName) {
-		this.firstName = firstName;
+	public void setPassword(String password) {
+		this.password = password;
+	}
+	public String getUserName() {
+		return userName;
+	}
+	public void setUserName(String firstName) {
+		this.userName = firstName;
 	}
 	public String getEmail() {
 		return email;

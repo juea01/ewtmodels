@@ -4,11 +4,11 @@ import java.math.BigDecimal;
 import java.util.Date;
 import java.util.List;
 
-public class DealDTO {
+public class GemJewelleryDTO {
 	
 	
-	private int dealId;
-	private String dealType;
+	private int gemJewelleryId;
+	private String type;
 	private String title;
 	private String description;
 	private String currency;
@@ -28,17 +28,17 @@ public class DealDTO {
 	public void setImages(List<String> images) {
 		this.images = images;
 	}
-	public int getDealId() {
-		return dealId;
+	public int getGemJewelleryId() {
+		return gemJewelleryId;
 	}
-	public void setDealId(int i) {
-		this.dealId = i;
+	public void setGemJewelleryId(int i) {
+		this.gemJewelleryId = i;
 	}
-	public String getDealType() {
-		return dealType;
+	public String getType() {
+		return type;
 	}
-	public void setDealType(String dealType) {
-		this.dealType = dealType;
+	public void setType(String dealType) {
+		this.type = dealType;
 	}
 	public String getTitle() {
 		return title;
