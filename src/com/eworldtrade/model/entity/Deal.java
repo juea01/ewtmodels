@@ -15,8 +15,12 @@ import java.util.List;
  */
 @Entity
 @NamedQueries({@NamedQuery(name="Deal.findAll", query="SELECT d FROM Deal d"),
+@NamedQuery(name="Deal.findAllBySearchKeyWord", query="SELECT d FROM Deal d where d.dealType like :searchKeyWord"),
+@NamedQuery(name="Deal.findAllByUserId", query="SELECT d FROM Deal d where d.user.userId = :userId"),
 @NamedQuery(name="Deal.findById", query="SELECT d FROM Deal d where d.dealId = :Id"),
-@NamedQuery(name="Deal.countAll", query="SELECT COUNT(d.dealId) FROM Deal d")})
+@NamedQuery(name="Deal.countAll", query="SELECT COUNT(d.dealId) FROM Deal d"),
+@NamedQuery(name="Deal.countAllBySearchKeyWord", query="SELECT COUNT(d.dealId) FROM Deal d where d.dealType like :searchKeyWord"),
+@NamedQuery(name="Deal.countAllByUserId", query="SELECT COUNT(d.dealId) FROM Deal d where d.user.userId = :userId")})
 public class Deal implements Serializable {
 	private static final long serialVersionUID = 1L;
 
@@ -41,11 +45,21 @@ public class Deal implements Serializable {
 	private Date submissionDate;
 
 	private String title;
+	
+//	@Column(name="U_ID")
+//	private int uId;
 
 	//bi-directional many-to-one association to Deal_Image
 	@OneToMany(fetch=FetchType.EAGER, cascade=CascadeType.PERSIST)
 	@JoinColumn(name="DEAL_ID")
 	private List<Deal_Image> dealImages;
+	
+	//unidirectional many-to-one relationship to User
+	@ManyToOne
+	@JoinColumn(name="U_ID")
+	private User user;
+	
+	
 	
 	public Deal() {
 	}
@@ -110,8 +124,26 @@ public class Deal implements Serializable {
 		return this.dealImages;
 		}
 
-		public void setDealImages(List<Deal_Image> dealImages) {
-		this.dealImages = dealImages;
-		}
+	public void setDealImages(List<Deal_Image> dealImages) {
+	this.dealImages = dealImages;
+	}
+	
+//	public int getuId() {
+//		return uId;
+//	}
+//
+//	public void setuId(int uId) {
+//		this.uId = uId;
+//	}
+
+	public User getUser() {
+		return user;
+	}
+
+	public void setUser(User user) {
+		this.user = user;
+	}
+	
+	
 
 }

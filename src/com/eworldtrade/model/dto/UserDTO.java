@@ -4,13 +4,19 @@ import java.util.Date;
 
 public class UserDTO {
 	
-	
+	private int userId; 
 	private String userName;
 	private String email;
-	private Date dateOfBirth;
+	private String dateOfBirth;
 	private String gender;
 	private String password;
 	
+	public int getUserId() {
+		return userId;
+	}
+	public void setUserId(int userId) {
+		this.userId = userId;
+	}
 	public String getPassword() {
 		return password;
 	}
@@ -29,10 +35,10 @@ public class UserDTO {
 	public void setEmail(String email) {
 		this.email = email;
 	}
-	public Date getDateOfBirth() {
+	public String getDateOfBirth() {
 		return dateOfBirth;
 	}
-	public void setDateOfBirth(Date dateOfBirth) {
+	public void setDateOfBirth(String dateOfBirth) {
 		this.dateOfBirth = dateOfBirth;
 	}
 	public String getGender() {
@@ -42,5 +48,4 @@ public class UserDTO {
 		this.gender = gender;
 	}
 	
-
 }

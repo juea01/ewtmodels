@@ -7,7 +7,8 @@
 		<class>com.eworldtrade.model.entity.Deal</class>
 		<class>com.eworldtrade.model.entity.User</class>
 		<class>com.eworldtrade.model.entity.GemJewellery</class>
-		<class>com.eworldtrade.model.entity.GemJewelleryImage</class>		
+		<class>com.eworldtrade.model.entity.GemJewelleryImage</class>
+		<class>com.eworldtrade.model.entity.ProductList</class>		
   <properties>
 	<!-- <property name="javax.persistence.jdbc.url" value="jdbc:mysql://localhost:3306/EWORLDTRADE"/>
 	<property name="javax.persistence.jdbc.user" value="AkDev"/>

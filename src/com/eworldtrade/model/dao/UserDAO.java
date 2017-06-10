@@ -13,6 +13,7 @@ import com.eworldtrade.model.dto.DealDTO;
 import com.eworldtrade.model.dto.UserDTO;
 import com.eworldtrade.model.entity.Deal;
 import com.eworldtrade.model.entity.GemJewellery;
+import com.eworldtrade.model.entity.ProductList;
 import com.eworldtrade.model.entity.User;
 
 //@Stateless
@@ -49,6 +50,15 @@ public class UserDAO implements DAO{
 	public List<Deal> getDeals(int startIndex, int totalSize) {
 		// TODO Auto-generated method stub
 		TypedQuery query = em.createNamedQuery("Deal.findAll",Deal.class);
+		query.setFirstResult(startIndex);
+		query.setMaxResults(totalSize);
+		List<Deal> deals = query.getResultList();
+		return deals;
+	}
+	
+	public List<Deal> getDealsBySearchKeyWord(int startIndex, int totalSize, String searchKeyWord) {
+		TypedQuery query = em.createNamedQuery("Deal.findAllBySearchKeyWord",Deal.class);
+		query.setParameter("searchKeyWord", searchKeyWord);
 		query.setFirstResult(startIndex);
 		query.setMaxResults(totalSize);
 		List<Deal> deals = query.getResultList();
@@ -107,6 +117,13 @@ public class UserDAO implements DAO{
 		return totalCount;
 	}
 	
+	public long countDealsBySearchKeyWord(String searchKeyWord) {
+		TypedQuery query = em.createNamedQuery("Deal.countAllBySearchKeyWord", Deal.class);
+		query.setParameter("searchKeyWord", searchKeyWord);
+		long totalCount = (Long) query.getSingleResult();
+		return totalCount;
+	}
+	
 	@Override
 	public long countGemsJewelleries() {
 		// TODO Auto-generated method stub
@@ -128,6 +145,52 @@ public class UserDAO implements DAO{
 			nre.getMessage();
 			return null;
 		} 
+	}
+
+	@Override
+	public List<ProductList> getAllProductList() {
+		// TODO Auto-generated method stub
+		try {
+			TypedQuery query = em.createNamedQuery("ProductList.findAll",ProductList.class);
+			List<ProductList> productList = query.getResultList();
+			return productList;
+		}catch (NoResultException nre) {
+			nre.getMessage();
+			return null;
+		}
+	}
+
+	@Override
+	public User getUserByUserId(int userId) {
+		// TODO Auto-generated method stub
+		try{
+			TypedQuery query = em.createNamedQuery("User.findByUserId", User.class);
+			query.setParameter("userId", userId);
+			User user = (User) query.getSingleResult();
+			return user;
+		}catch (NoResultException nre) {
+			nre.getMessage();
+			return null;
+		}
+	}
+
+	@Override
+	public long countDealsByUserId(int userId) {
+		// TODO Auto-generated method stub
+		TypedQuery query = em.createNamedQuery("Deal.countAllByUserId", Deal.class);
+		query.setParameter("userId", userId);
+		long totalCount = (Long) query.getSingleResult();
+		return totalCount;
+	}
+
+	@Override
+	public List<Deal> getDealsByUserId(int startIndex, int totalSize, int userId) {
+		TypedQuery query = em.createNamedQuery("Deal.findAllByUserId",Deal.class);
+		query.setParameter("userId", userId);
+		query.setFirstResult(startIndex);
+		query.setMaxResults(totalSize);
+		List<Deal> deals = query.getResultList();
+		return deals;
 	}
 	
 }

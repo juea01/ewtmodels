@@ -13,6 +13,7 @@ import com.eworldtrade.model.dto.DealDTO;
 import com.eworldtrade.model.dto.UserDTO;
 import com.eworldtrade.model.entity.Deal;
 import com.eworldtrade.model.entity.GemJewellery;
+import com.eworldtrade.model.entity.ProductList;
 import com.eworldtrade.model.entity.User;
 
 
@@ -40,9 +41,17 @@ import com.eworldtrade.model.entity.User;
 	
 	public List<Deal> getDeals(int startIndex, int totalSize); 
 	
+	public List<Deal> getDealsBySearchKeyWord(int startIndex, int totalSize, String searchKeyWord);
+	
+	public List<Deal> getDealsByUserId(int startIndex, int totalSize, int userId);
+	
 	public List<GemJewellery> getGemsJewelleries(int startIndex, int totalSize); 
 	
 	public long countDeals();
+	
+	public long countDealsBySearchKeyWord(String searchKeyWord);
+	
+	public long countDealsByUserId(int userId);
 	
 	public long countGemsJewelleries();
 	
@@ -51,4 +60,8 @@ import com.eworldtrade.model.entity.User;
 	public GemJewellery getGemJewelleryById(int id); 
 	
 	public User getUserByUserNamePassword(String userName, String password);
+	
+	public List<ProductList> getAllProductList();
+	
+	public User getUserByUserId(int userId);
 }

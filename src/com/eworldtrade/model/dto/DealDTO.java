@@ -15,6 +15,7 @@ public class DealDTO {
 	private BigDecimal price;
 	private Date subissionDate;
 	private List<String> images;
+	private int userId;
 	
 	public String getCurrency() {
 		return currency;
@@ -63,6 +64,13 @@ public class DealDTO {
 	}
 	public void setSubissionDate(Date subissionDate) {
 		this.subissionDate = subissionDate;
+	}
+	
+	public int getUserId() {
+		return userId;
+	}
+	public void setUserId(int userId) {
+		this.userId = userId;
 	}
 	
 	

@@ -13,7 +13,8 @@ import java.util.Date;
  */
 @Entity
 @NamedQueries({@NamedQuery(name="User.findAll", query="SELECT u FROM User u"),
-@NamedQuery(name="User.findByUserNamePassword", query="SELECT u FROM User u where u.userName = :userName and u.password = :password ")
+@NamedQuery(name="User.findByUserNamePassword", query="SELECT u FROM User u where u.userName = :userName and u.password = :password "),
+@NamedQuery(name="User.findByUserId", query="SELECT u FROM User u where u.userId = :userId")
 })
 public class User implements Serializable {
 	private static final long serialVersionUID = 1L;
