@@ -47,6 +47,14 @@ public class UserDAO implements DAO{
 	}
 	
 	@Override
+	public User updateUser(User user) {
+		// TODO Auto-generated method stub
+		em.merge(user);
+		return user;
+	}
+	
+	
+	@Override
 	public List<Deal> getDeals(int startIndex, int totalSize) {
 		// TODO Auto-generated method stub
 		TypedQuery query = em.createNamedQuery("Deal.findAll",Deal.class);

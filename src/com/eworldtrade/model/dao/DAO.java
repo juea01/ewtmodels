@@ -35,6 +35,8 @@ import com.eworldtrade.model.entity.User;
 	
 	public User createUser(User user);
 	
+	public User updateUser(User user);
+	
 	public Deal createDeal(Deal deal);
 	
 	public GemJewellery createGemJewellery(GemJewellery gemJewellery);
@@ -64,4 +66,5 @@ import com.eworldtrade.model.entity.User;
 	public List<ProductList> getAllProductList();
 	
 	public User getUserByUserId(int userId);
+
 }
