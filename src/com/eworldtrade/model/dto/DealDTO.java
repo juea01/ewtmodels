@@ -9,7 +9,7 @@ public class DealDTO {
 	
 	private int dealId;
 	private String dealType;
-	private String title;
+	private String briefDescription;
 	private String description;
 	private String currency;
 	private BigDecimal price;
@@ -41,11 +41,11 @@ public class DealDTO {
 	public void setDealType(String dealType) {
 		this.dealType = dealType;
 	}
-	public String getTitle() {
-		return title;
+	public String getBriefDescription() {
+		return briefDescription;
 	}
-	public void setTitle(String title) {
-		this.title = title;
+	public void setBriefDescription(String title) {
+		this.briefDescription = title;
 	}
 	public String getDescription() {
 		return description;
