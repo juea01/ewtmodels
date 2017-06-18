@@ -200,5 +200,12 @@ public class UserDAO implements DAO{
 		List<Deal> deals = query.getResultList();
 		return deals;
 	}
+
+	@Override
+	public Deal updateDeal(Deal deal) {
+		// TODO Auto-generated method stub
+		em.merge(deal);
+		return deal;
+	}
 	
 }

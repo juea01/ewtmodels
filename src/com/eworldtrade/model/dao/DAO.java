@@ -39,6 +39,8 @@ import com.eworldtrade.model.entity.User;
 	
 	public Deal createDeal(Deal deal);
 	
+	public Deal updateDeal(Deal deal);
+	
 	public GemJewellery createGemJewellery(GemJewellery gemJewellery);
 	
 	public List<Deal> getDeals(int startIndex, int totalSize); 
